@@ -14,8 +14,62 @@ Author URI: https://srsplugins.com
 
     // register the admin page menu action 
     public function __construct(){
-        add_action('admin_menu', array($this, 'admin_Page'));
-        add_action('admin_init', array($this, 'srspc_settings'));
+        add_action('admin_menu', [$this, 'admin_Page']);
+        add_action('admin_init', [$this, 'srspc_settings']);
+        add_filter('the_content', [$this, 'ifWrap']);
+    }
+
+    //  ifWrap
+    function ifWrap($content){
+      if (is_main_query() AND is_single() AND 
+      (
+        get_option('srspc_wordcount', '1') OR
+        get_option('srspc_charactercount', '1') OR
+        get_option('srspc_readtime', '1')
+      )) {
+        return $this->createHTML($content);
+      }
+      return $content;
+    }
+
+
+    // create post counter html in single post page
+    function createHTML($content){
+      $html = '<h3>' . esc_html(get_option('srspc_headline', 'Post Statistics')) . '</h3><p>';
+
+      // word count 
+      if (get_option('srspc_wordcount', '1') || get_option('srspc_readtime', '1')) {
+        $word_count = str_word_count(strip_tags($content));
+      }
+
+      // word count html 
+      if (get_option('srspc_wordcount', '1')) {
+        $html .= 'This post has ' . $word_count . ' words.<br>';
+      }
+
+      // character count html
+      if (get_option('srspc_charactercount', '1')) {
+        $html .= 'This post has ' . strlen(strip_tags($content)) . ' characters.<br>';
+      }
+
+      // read time html
+      if (get_option('srspc_readtime', '1')) {
+          $reading_time_seconds = round(($word_count / 225) * 60); // Convert minutes to seconds
+          $minutes = floor($reading_time_seconds / 60); // Get whole minutes
+          $seconds = $reading_time_seconds % 60; // Get remaining seconds
+
+          $html .= "This post will take about {$minutes}m {$seconds}s to read.<br>";
+      }
+
+
+      $html .= '</p>';
+
+
+      // define locaiotn 
+      if (get_option('srspc_location', '0') === '0') {
+       return $html . $content;
+      }
+      return $content . $html;
     }
 
    //  srspc_settings
