@@ -17,7 +17,6 @@ if (!defined('ABSPATH')) {
 
 // Define plugin path
 define('SRSPC_PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('SRSPC_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 // Include required files
 require_once SRSPC_PLUGIN_PATH . 'includes/settings.php';
@@ -30,7 +29,13 @@ class SRSPostCounter {
         add_action('admin_menu', [$this, 'add_admin_page']);
         add_action('admin_init', 'srspc_register_settings');
         add_filter('the_content', 'srspc_filter_content');
+        add_action('init', array($this, 'languages'));
     }
+
+    function languages() {
+        load_plugin_textdomain('srspcdomain', false, dirname(plugin_basename(__FILE__)) . '/languages');
+    }
+
 
     public function add_admin_page() {
         add_options_page(

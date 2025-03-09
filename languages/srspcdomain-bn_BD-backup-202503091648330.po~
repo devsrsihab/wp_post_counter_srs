@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SRS Post Counter\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-09 16:43+0000\n"
+"PO-Revision-Date: 2025-03-09 16:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: Bengali (Bangladesh)\n"
+"Language: bn_BD\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.7.1; wp-6.7.2\n"
+"X-Domain: srspcdomain"
+
+#. Description of the plugin
+msgid "A simple plugin to display the number of posts in a category."
+msgstr ""
+
+#: includes/admin-page.php:21
+msgid "Beginning of post"
+msgstr "পোস্টের আগে "
+
+#: includes/post-counter.php:26
+msgid "characters."
+msgstr "অক্ষর"
+
+#: includes/admin-page.php:24
+msgid "End of post"
+msgstr "পোস্টের শেষে "
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://srsplugins.com"
+msgstr ""
+
+#. Author of the plugin
+msgid "Md. Sohanur Rohman Sihab"
+msgstr ""
+
+#: includes/post-counter.php:15
+msgid "Post Statistics"
+msgstr "পোস্ট পরিসংখ্যান"
+
+#. Name of the plugin
+#: srs_post_counter.php:42
+msgid "SRS Post Counter"
+msgstr "এসআরএস পোস্ট কাউন্টার"
+
+#: includes/admin-page.php:6
+msgid "SRS Post Counter Settings"
+msgstr "SRS পোস্ট কাউন্টার সেটিংস"
+
+#: includes/post-counter.php:22 includes/post-counter.php:26
+msgid "This post has"
+msgstr "এই পোস্টে আছে"
+
+#: includes/post-counter.php:34
+msgid "This post will take about"
+msgstr ""
+
+#: includes/post-counter.php:34
+msgid "to read."
+msgstr ""
+
+#: includes/post-counter.php:22
+msgid "words."
+msgstr ""

@@ -12,7 +12,7 @@ function srspc_filter_content($content) {
 }
 
 function srspc_generate_html($content) {
-    $html = '<h3>' . esc_html(get_option('srspc_headline', __('Post Statistics', 'srspcdomain'))) . '</h3><p>';
+    $html = '<h3>' . esc_html(__(get_option('srspc_headline', __('Post Statistics', 'srspcdomain')), 'srspcdomain')) . '</h3><p>';
 
     if (get_option('srspc_wordcount', '1') || get_option('srspc_readtime', '1')) {
         $word_count = str_word_count(strip_tags($content));
